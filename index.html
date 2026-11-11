@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BassDesk — Live Bass & Groove</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: system-ui, sans-serif; background:#111; color:#eee; margin:0; padding:20px; }
+button, input, select { background:#222; color:#eee; border:1px solid #444; padding:8px; margin:4px; }
+button.primary { background:#0a7; }
+#status { margin:10px 0; }
+.grid { display:flex; gap:20px; flex-wrap:wrap; }
+.chair { border:1px solid #333; padding:10px; }
+</style>
+</head>
+<body>
+<h1>BassDesk</h1>
+<p>Focused live bassline + drum groove desk. Chord-aware patterns. Drop into any DAW.</p>
+<div id="status">Tap any control to start audio.</div>
+<div class="grid">
+  <div>
+    <label>BPM <input type="number" id="bpm" min="60" max="180" value="92"></label>
+    <label>Key <select id="key"><option>C</option><option>G</option><option>D</option><option>A</option><option>E</option><option>F</option><option>Am</option><option>Em</option></select></label>
+    <label>Chords (4) <input id="chords" value="Am F C G" placeholder="Am F C G"></label>
+    <label>Bars <input type="number" id="bars" min="1" max="16" value="8"></label>
+    <button id="play" class="primary">Play</button>
+    <button id="stop">Stop</button>
+    <button id="exportWav">Export WAV</button>
+    <button id="exportMid">Export MIDI</button>
+  </div>
+  <div class="chair">
+    <h3>Bass</h3>
+    <label><input type="checkbox" id="muteBass"> Mute</label>
+    <select id="bassPattern"><option value="root">Root</option><option value="rootfifth">Root-Fifth</option><option value="walk">Simple Walk</option></select>
+  </div>
+  <div class="chair">
+    <h3>Drums</h3>
+    <label><input type="checkbox" id="muteDrums"> Mute</label>
+    <select id="drumPattern"><option value="basic">Basic</option><option value="offbeat">Offbeat Hat</option></select>
+  </div>
+</div>
+<div id="playhead">Step: 0</div>
+<script src="app.js"></script>
+</body>
+</html>
